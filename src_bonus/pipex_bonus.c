@@ -6,7 +6,7 @@
 /*   By: anporced <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/16 12:44:54 by anporced          #+#    #+#             */
-/*   Updated: 2024/04/07 20:32:34 by anporced         ###   ########.fr       */
+/*   Updated: 2024/04/07 23:55:16 by anporced         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,10 +80,7 @@ void	launch_processes(int ac, char **av, char **env)
 		i = 2;
 	}
 	while (i < ac - 2)
-	{
-		create_pipes(av[i], env);
-		i++;
-	}
+		create_pipes(av[i++], env);
 	fd = open_file(av[ac - 1], O_WRONLY | O_CREAT | O_TRUNC);
 	dup2(fd, STDOUT_FILENO);
 	execute_command(av[ac - 2], env);
@@ -94,10 +91,9 @@ int	main(int ac, char **av, char **env)
 {
 	int	is_here_doc;
 
-	if (ft_strcmp(av[1], "here_doc") == 0)
+	if (av[1] && ft_strcmp(av[1], "here_doc") == 0)
 		is_here_doc = 1;
-	else
-		is_here_doc = 0;
+	is_here_doc = 0;
 	validate_args_count(ac, is_here_doc);
 	launch_processes(ac, av, env);
 	return (0);
