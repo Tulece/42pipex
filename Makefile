@@ -1,15 +1,15 @@
-NAME	=	pipex
-NAME_BONUS = pipex_bonus
-CC		=	cc
-FLAGS 	=	-g -Wall -Werror -Werror
-LIBFT_PATH = libft/
-LIBFT_FILE = libft/libft.a
+NAME		=	pipex
+NAME_BONUS	=	pipex_bonus
+CC			=	cc
+FLAGS		=	-g -Wall -Werror -Werror
+LIBFT_PATH	=	libft/
+LIBFT_FILE	=	libft/libft.a
 
-SRC		=	$(wildcard src/*.c)
-OBJ		=	$(patsubst %.c,%.o,$(SRC))
-SRC_BONUS = $(wildcard src_bonus/*.c)
-OBJ_BONUS =	$(patsubst %.c,%.o,$(SRC_BONUS))
-RM 		=	rm -f
+SRC			=	$(wildcard src/*.c)
+OBJ			=	$(patsubst %.c,%.o,$(SRC))
+SRC_BONUS	=	$(wildcard src_bonus/*.c)
+OBJ_BONUS	=	$(patsubst %.c,%.o,$(SRC_BONUS))
+RM 			=	rm -f
 
 .SUFFIXES: .c .o
 

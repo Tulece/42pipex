@@ -6,7 +6,7 @@
 /*   By: anporced <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/16 12:44:54 by anporced          #+#    #+#             */
-/*   Updated: 2024/04/07 20:17:44 by anporced         ###   ########.fr       */
+/*   Updated: 2024/04/07 20:32:34 by anporced         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,6 @@ void	launch_processes(int ac, char **av, char **env)
 	execute_command(av[ac - 2], env);
 	close(fd);
 }
-
 
 int	main(int ac, char **av, char **env)
 {

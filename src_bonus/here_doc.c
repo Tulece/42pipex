@@ -6,7 +6,7 @@
 /*   By: anporced <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/07 18:30:36 by anporced          #+#    #+#             */
-/*   Updated: 2024/04/07 20:25:13 by anporced         ###   ########.fr       */
+/*   Updated: 2024/04/07 20:32:23 by anporced         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	child_here_doc(int *pipe_fds, char **av)
 	char	*line;
 
 	close(pipe_fds[0]);
-	 dup2(pipe_fds[1], STDOUT_FILENO);
+	dup2(pipe_fds[1], STDOUT_FILENO);
 	while (1)
 	{
 		line = get_next_line(0);
