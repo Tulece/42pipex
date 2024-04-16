@@ -81,13 +81,10 @@ void	launch_processes(int ac, char **av, char **env)
 	}
 	while (i < ac - 2)
 		create_pipes(av[i++], env);
-	if (ft_strcmp(av[1], "here_doc") != 0)
-	{
-		fd = open_file(av[ac - 1], O_WRONLY | O_CREAT | O_TRUNC);
-		dup2(fd, STDOUT_FILENO);
-		execute_command(av[ac - 2], env);
-		close(fd);
-	}
+	fd = open_file(av[ac - 1], O_WRONLY | O_CREAT | O_TRUNC);
+	dup2(fd, STDOUT_FILENO);
+	execute_command(av[ac - 2], env);
+	close(fd);
 }
 
 int	main(int ac, char **av, char **env)
