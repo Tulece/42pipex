@@ -6,7 +6,7 @@
 /*   By: anporced <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/16 12:44:54 by anporced          #+#    #+#             */
-/*   Updated: 2024/04/16 17:53:39 by anporced         ###   ########.fr       */
+/*   Updated: 2024/04/16 19:31:43 by anporced         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,10 +78,10 @@ void	launch_processes(int ac, char **av, char **env)
 		dup2(fd, STDIN_FILENO);
 		close(fd);
 		i = 2;
+		fd = open_file(av[ac - 1], O_WRONLY | O_CREAT | O_TRUNC);
 	}
 	while (i < ac - 2)
 		create_pipes(av[i++], env);
-	fd = open_file(av[ac - 1], O_WRONLY | O_CREAT | O_TRUNC);
 	dup2(fd, STDOUT_FILENO);
 	execute_command(av[ac - 2], env);
 	close(fd);
