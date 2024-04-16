@@ -6,7 +6,7 @@
 /*   By: anporced <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/07 18:30:21 by anporced          #+#    #+#             */
-/*   Updated: 2024/04/07 23:36:22 by anporced         ###   ########.fr       */
+/*   Updated: 2024/04/07 20:47:47 by anporced         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,19 +37,19 @@ char	*get_path(char *cmd, char **env)
 {
 	char	**path;
 	int		i;
-	char	*sub_path;
-	char	*execution_path;
+	char	*each_path;
+	char	*exec_path;
 
 	path = extract_path(env);
 	i = -1;
 	while (path[++i])
 	{
-		sub_path = ft_strjoin(path[i], "/");
-		execution_path = ft_strjoin(sub_path, cmd);
-		free(sub_path);
-		if (access(execution_path, X_OK) == 0)
-			return (free_str_array(path), execution_path);
-		free(execution_path);
+		each_path = ft_strjoin(path[i], "/");
+		exec_path = ft_strjoin(each_path, cmd);
+		free(each_path);
+		if (access(exec_path, X_OK) == 0)
+			return (free_str_array(path), exec_path);
+		free(exec_path);
 	}
 	free_str_array(path);
 	perror("Error: Executable not found in any PATH directory.\n");
