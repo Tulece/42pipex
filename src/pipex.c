@@ -6,7 +6,7 @@
 /*   By: anporced <anporced@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/07 17:42:00 by anporced          #+#    #+#             */
-/*   Updated: 2024/04/21 15:19:50 by anporced         ###   ########.fr       */
+/*   Updated: 2024/04/21 17:23:11 by anporced         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,9 @@ void	execute_command(char *command, char **env)
 	}
 	if (execve(path, av, env) == -1)
 	{
-		perror("Error: Command execution failed.\n");
 		free_array(av);
 		free(path);
+		perror("Error: Command execution failed.\n");
 		exit(EXIT_FAILURE);
 	}
 }
