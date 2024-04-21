@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pipex.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anporced <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: anporced <anporced@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/07 17:42:00 by anporced          #+#    #+#             */
-/*   Updated: 2024/04/07 18:51:44 by anporced         ###   ########.fr       */
+/*   Updated: 2024/04/21 15:19:50 by anporced         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ int	main(int ac, char **av, char **env)
 	int	pid;
 
 	if (ac != 5)
-		return (perror("Error: Incorrect number of arguments.\n"), 1);
+		return (ft_printf("Error: Incorrect number of arguments.\n"), 1);
 	if (pipe(pipe_fds) == -1)
 		return (perror("Error: Pipe creation failed.\n"), 1);
 	pid = fork();

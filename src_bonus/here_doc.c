@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   here_doc.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anporced <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: anporced <anporced@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/07 18:30:36 by anporced          #+#    #+#             */
-/*   Updated: 2024/04/07 21:07:17 by anporced         ###   ########.fr       */
+/*   Updated: 2024/04/21 15:11:51 by anporced         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	child_here_doc(int *pipe_fds, char **av)
 	while (1)
 	{
 		line = get_next_line(0);
-		if (!ft_strncmp(line, av[2], ft_strlen(av[2])))
+		if (!ft_strncmp_gnl(line, av[2], ft_strlen(av[2])))
 		{
 			free(line);
 			break ;

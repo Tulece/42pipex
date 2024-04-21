@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pipex_bonus.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anporced <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: anporced <anporced@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/16 12:44:54 by anporced          #+#    #+#             */
-/*   Updated: 2024/04/16 19:31:43 by anporced         ###   ########.fr       */
+/*   Updated: 2024/04/21 15:19:33 by anporced         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,6 +91,8 @@ int	main(int ac, char **av, char **env)
 {
 	int	is_here_doc;
 
+	if (ac < 5)
+		return (ft_printf("Error: Invalid number of arguments.\n"), 1);
 	if (ft_strcmp(av[1], "here_doc") == 0)
 		is_here_doc = 1;
 	else
