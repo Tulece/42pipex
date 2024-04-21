@@ -6,7 +6,7 @@
 /*   By: anporced <anporced@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/07 17:58:16 by anporced          #+#    #+#             */
-/*   Updated: 2024/04/21 17:25:11 by anporced         ###   ########.fr       */
+/*   Updated: 2024/04/21 17:44:24 by anporced         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,7 @@ char	**get_environment_path(char **env)
 		free(env_entr_prefix);
 		i++;
 	}
-	perror("Error: PATH environment variable not found.\n");
-	exit(EXIT_FAILURE);
+	return (NULL);
 }
 
 char	*construct_executable_path(char *command, char **env)
@@ -43,6 +42,8 @@ char	*construct_executable_path(char *command, char **env)
 
 	i = 0;
 	path_dirs = get_environment_path(env);
+	if (!path_dirs)
+		return (perror("Error: PATH environment variable not found.\n"), NULL);
 	while (path_dirs[i])
 	{
 		path_prefix = ft_strjoin(path_dirs[i], "/");
@@ -54,8 +55,7 @@ char	*construct_executable_path(char *command, char **env)
 		i++;
 	}
 	free_array(path_dirs);
-	perror("Error: Executable not found in any PATH directory.\n");
-	exit(EXIT_FAILURE);
+	return (NULL);
 }
 
 void	free_array(char **arr)

@@ -6,7 +6,7 @@
 /*   By: anporced <anporced@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/07 17:42:00 by anporced          #+#    #+#             */
-/*   Updated: 2024/04/21 17:23:11 by anporced         ###   ########.fr       */
+/*   Updated: 2024/04/21 17:40:16 by anporced         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@ void	execute_command(char *command, char **env)
 		perror("Error: Command execution failed.\n");
 		exit(EXIT_FAILURE);
 	}
+	free_array(av);
+	free(path);
 }
 
 void	handle_child_process(int *pipe_fds, char **av, char **env)

@@ -6,7 +6,7 @@
 /*   By: anporced <anporced@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/16 12:44:54 by anporced          #+#    #+#             */
-/*   Updated: 2024/04/21 15:19:33 by anporced         ###   ########.fr       */
+/*   Updated: 2024/04/21 17:49:56 by anporced         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@ void	execute_command(char *cmd, char **env)
 		free(path);
 		exit(EXIT_FAILURE);
 	}
+	free_str_array(av);
+	free(path);
 }
 
 void	create_pipes(char *cmd, char **env)

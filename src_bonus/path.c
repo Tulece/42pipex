@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   path.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anporced <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: anporced <anporced@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/07 18:30:21 by anporced          #+#    #+#             */
-/*   Updated: 2024/04/07 20:47:47 by anporced         ###   ########.fr       */
+/*   Updated: 2024/04/21 18:00:12 by anporced         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,7 @@ char	**extract_path(char **env)
 		}
 		free(env_entr_prefix);
 	}
-	perror("Error: PATH environment variable not found.\n");
-	exit(EXIT_FAILURE);
+	return (NULL);
 }
 
 char	*get_path(char *cmd, char **env)
@@ -41,6 +40,8 @@ char	*get_path(char *cmd, char **env)
 	char	*exec_path;
 
 	path = extract_path(env);
+	if (!path)
+		return (perror("Error: PATH environment variable not found.\n"), NULL);
 	i = -1;
 	while (path[++i])
 	{
@@ -52,6 +53,5 @@ char	*get_path(char *cmd, char **env)
 		free(exec_path);
 	}
 	free_str_array(path);
-	perror("Error: Executable not found in any PATH directory.\n");
-	exit(EXIT_FAILURE);
+	return (NULL);
 }
